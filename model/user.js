@@ -7,6 +7,7 @@ export default class User{
         this.UserID=null;
         this.Avatar="";
         this.Description="";
+        this.Email="";
     }
 
     _checkUser(email){//检查用户是否已创建
@@ -37,8 +38,8 @@ export default class User{
         
     }
 
-    UpdateUserInfo(info,userId){
-        return mysql.queryAsync("UPDATE elvis_users SET ? WHERE UserID=?",[info,userId])
+    UpdateUserInfo(info,email){
+        return mysql.queryAsync("UPDATE elvis_users SET ? WHERE Email=?",[info,email])
     }
 
     GetUserInfo(userId){

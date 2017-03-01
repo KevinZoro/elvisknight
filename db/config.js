@@ -1,7 +1,7 @@
 module.exports = {
     mysql: {
         user: 'root',
-        password: '123321',
+        password: 'zt123321',
         host: '127.0.0.1',
         port: '3306',
         database: 'elvis_db',
