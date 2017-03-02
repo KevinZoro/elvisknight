@@ -8,7 +8,7 @@ const json = require('koa-json');
 const onerror = require('koa-onerror');
 const bodyparser = require('koa-bodyparser')();
 const logger = require('koa-logger');
-// const session = require('koa-session2');
+const session = require('koa-session-minimal');
 const Store = require('./utils/redis');
 
 const index = require('./routes/index');
@@ -19,10 +19,10 @@ app.use(convert(bodyparser));
 app.use(convert(json()));
 app.use(convert(logger()));
 
-// app.use(session({
-//     store: new Store(),
-// 	maxAge:72000000
-// }));
+app.use(session({
+    store: new Store(),
+	maxAge:72000000
+}));
 
 app.use(require('koa-static')(__dirname + '/public'));
 
